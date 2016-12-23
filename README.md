@@ -1,4 +1,4 @@
-PHPDocker.io generated environment
+SmartDocker By PHPDocker.io generated environment
 ==================================
 
 #Add to your project#
@@ -49,7 +49,8 @@ You'll need to configure your application to use any services you enabled:
 
 Service|Hostname|Port number
 ------|---------|-----------
-php-fpm|smartdocker-php-fpm|9000
+php-fpm56|smartdocker-php-fpm|9000
+php-fpm7|smartdocker-php-fpm|9000
 MySQL|smartdocker-mysql|3306 (default)
 Postgres|smartdocker-postgres|5432 (default)
 Memcached|smartdocker-memcached|11211 (default)

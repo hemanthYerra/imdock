@@ -2,11 +2,11 @@
 #                          Generated on phpdocker.io                          #
 ###############################################################################
 
-smartdocker-memcached:
-  image: phpdockerio/memcached:latest
-  container_name: smartdocker-memcached
-  volumes:
-        - ../memcached:/var/lib/redis
+#smartdocker-memcached:
+#  image: phpdockerio/memcached:latest
+#  container_name: smartdocker-memcached
+#  volumes:
+#        - ../memcached:/var/lib/redis
 
 smartdocker-mailhog:
   image: phpdockerio/mailhog:latest
@@ -14,11 +14,11 @@ smartdocker-mailhog:
   ports:
     - "8081:8025"
 
-smartdocker-redis:
-  image: phpdockerio/redis:latest
-  container_name: smartdocker-redis
-  volumes:
-      - ../redis:/var/lib/redis
+#smartdocker-redis:
+#  image: phpdockerio/redis:latest
+#  container_name: smartdocker-redis
+#  volumes:
+#      - ../redis:/var/lib/redis
 
 smartdocker-mysql:
   image: mysql:5.7
@@ -51,19 +51,35 @@ smartdocker-webserver:
   ports:
       - "8080:80"
   links:
-      - smartdocker-php-fpm
+      - smartdocker-php7-fpm
+      - smartdocker-php56-fpm
 
-smartdocker-php-fpm:
+smartdocker-php7-fpm:
   build: .
-  dockerfile: php-fpm/Dockerfile
-  container_name: smartdocker-php-fpm
+  dockerfile: php-fpm/Dockerfile7
+  container_name: smartdocker-php7-fpm
   volumes:
       - ../website:/var/www/smartdocker
       - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
   ports:
-      - "9000:9000"
+      - "9001:9000"
   links:
-      - smartdocker-memcached
       - smartdocker-mysql
-      - smartdocker-redis
+#      - smartdocker-memcached
+#      - smartdocker-redis
+      - smartdocker-mailhog
+
+smartdocker-php56-fpm:
+  build: .
+  dockerfile: php-fpm/Dockerfile56
+  container_name: smartdocker-php56-fpm
+  volumes:
+      - ../website:/var/www/smartdocker
+      - ./php-fpm/php-ini-overrides.ini:/etc/php5/fpm/conf.d/99-overrides.ini
+  ports:
+      - "9002:9000"
+  links:
+      - smartdocker-mysql
+#      - smartdocker-memcached
+#      - smartdocker-redis
       - smartdocker-mailhog

@@ -64,6 +64,7 @@ SMTP (Mailhog)|smartdocker-mailhog|1025 (default)
 **Note 2:** if you're using Vagrant, you'll need to ssh into it first
 
   * Start containers in the background: `docker-compose up -d`
+  * Start Sample: `docker-compose up -d smartdocker-php56-fpm smartdocker-php7-fpm smartdocker-nginx smartdocker-mysql smartdocker-mailhog`
   * Start containers on the foreground: `docker-compose up`. You will see a stream of logs for every container running.
   * Stop containers: `docker-compose stop`
   * Kill containers: `docker-compose kill`

@@ -1,0 +1,19 @@
+server {
+    listen 80 default;
+    client_max_body_size 18M;
+    access_log /var/log/nginx/smartdocker.access.log;
+    root /var/www/smartdocker/default;
+    index index.php index.html;
+    include /etc/nginx/conf.d/sites-include/enable-php56.conf;
+}
+
+# Sample By Laravel use php5.6
+# server {
+#     listen 80;
+#     server_name dev.smartlaravel.com;
+#     index index.php index.html;
+#     root /var/www/smartdocker/smart_laravel_web/public;
+#
+#     include /etc/nginx/conf.d/sites-include/enable-php56.conf;
+#     include /etc/nginx/conf.d/sites-include/laravel-elegant-links.conf;
+# }

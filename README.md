@@ -1,9 +1,9 @@
-SmartDocker By PHPDocker.io generated environment
+SmartDocker
 ==================================
 
 #How to run#
 
-  * Start Sample: `docker-compose up -d smartdocker-php56-fpm smartdocker-php7-fpm smartdocker-nginx smartdocker-mysql smartdocker-mailhog`
+  * Start Sample: `docker-compose up -d smartdocker-cnp56 smartdocker-mysql smartdocker-mailhog`
 
 ##Services exposed outside your environment##
 
@@ -17,16 +17,6 @@ Mailhog web interface|[localhost:8081](http://localhost:8081)|[192.168.33.141:81
 ##Hosts within your environment##
 
 You'll need to configure your application to use any services you enabled:
-
-Service|Hostname|Port number
-------|---------|-----------
-php-fpm56|smartdocker-php56-fpm|9000
-php-fpm7|smartdocker-php7-fpm|9000
-MySQL|smartdocker-mysql|3306 (default)
-Postgres|smartdocker-postgres|5432 (default)
-Memcached|smartdocker-memcached|11211 (default)
-Redis|smartdocker-redis|6379 (default)
-SMTP (Mailhog)|smartdocker-mailhog|1025 (default)
 
 #Docker compose cheatsheet#
 

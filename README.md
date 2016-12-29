@@ -3,7 +3,7 @@ SmartDocker
 
 #How to run#
 
-  * Start Sample: `docker-compose up -d smartdocker-cnp56 smartdocker-mysql smartdocker-mailhog`
+  * Start Sample: `docker-compose up -d smartdocker-mysql smartdocker-cnp56 smartdocker-mailhog`
 
 ##Services exposed outside your environment##
 

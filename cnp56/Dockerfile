@@ -35,6 +35,7 @@ RUN yum -y install supervisor
 # Ensure that PHP5 FPM is run as root.
 RUN sed -i -e 's/user = apache/user = nginx/' /etc/php-fpm.d/www.conf
 RUN sed -i -e 's/group = apache/group = nginx/' /etc/php-fpm.d/www.conf
+RUN mv /etc/php.d/xdebug.ini /etc/php.d/xdebug.ini.disable
 
 # Add configuration files
 COPY conf/nginx.conf /etc/nginx/

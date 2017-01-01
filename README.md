@@ -5,19 +5,6 @@ imdock
 
   * Start Sample: `docker-compose up -d imdock-mysql imdock-cnp56 imdock-mailhog`
 
-##Services exposed outside your environment##
-
-You can access your application via **`localhost`**, if you're running the containers directly, or through **`192.168.33.141`** when run on a vm. nginx and mailhog both respond to any hostname, in case you want to add your own hostname on your `/etc/hosts` 
-
-Service|Address outside containers|Address outside VM
-------|---------|-----------
-Nginx|[localhost:8080](http://localhost:8080)|[192.168.33.141](http://192.168.33.141)
-Mailhog web interface|[localhost:8081](http://localhost:8081)|[192.168.33.141:81](http://192.168.33.141:81)
-
-##Hosts within your environment##
-
-You'll need to configure your application to use any services you enabled:
-
 #Docker compose cheatsheet#
 
 **Note 1:** you need to cd first to where your docker-compose.yml file lives

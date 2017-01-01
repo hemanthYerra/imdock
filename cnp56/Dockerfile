@@ -32,14 +32,25 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 # Install Supervisor
 RUN yum -y install supervisor
 
+# Install crontab service
+RUN yum -y install vixie-cron crontabs
+RUN sed -ie '/pam_loginuid/d' /etc/pam.d/crond
+RUN chmod g+s /etc/crontab
+
+# Delete Install data-info
+RUN yum clean all && rm -f /var/log/yum.log
+
+
 # Ensure that PHP5 FPM is run as root.
 RUN sed -i -e 's/user = apache/user = nginx/' /etc/php-fpm.d/www.conf
 RUN sed -i -e 's/group = apache/group = nginx/' /etc/php-fpm.d/www.conf
 RUN mv /etc/php.d/xdebug.ini /etc/php.d/xdebug.ini.disable
 
+
 # Add configuration files
 COPY conf/nginx.conf /etc/nginx/
 COPY conf/supervisord.conf /etc/supervisor/supervisord.conf
+COPY sites-module /etc/nginx/sites-module
 
 
 VOLUME ["/var/www", "/etc/nginx/conf.d"]

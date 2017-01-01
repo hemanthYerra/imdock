@@ -1,9 +1,9 @@
-SmartDocker
+imdock
 ==================================
 
 #How to run#
 
-  * Start Sample: `docker-compose up -d smartdocker-mysql smartdocker-cnp56 smartdocker-mailhog`
+  * Start Sample: `docker-compose up -d imdock-mysql imdock-cnp56 imdock-mailhog`
 
 ##Services exposed outside your environment##
 
@@ -29,4 +29,4 @@ You'll need to configure your application to use any services you enabled:
   * Stop containers: `docker-compose stop`
   * Kill containers: `docker-compose kill`
   * View container logs: `docker-compose logs`
-  * Execute command inside of container: `docker exec -it smartdocker-php-fpm COMMAND` where `COMMAND` is whatever you want to run. For instance, `/bin/bash` to open a console prompt.
+  * Execute command inside of container: `docker exec -it imdock-php-fpm COMMAND` where `COMMAND` is whatever you want to run. For instance, `/bin/bash` to open a console prompt.

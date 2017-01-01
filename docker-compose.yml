@@ -83,10 +83,10 @@ services:
         container_name: imdock-cnp56
         ports:
             - "80:80"
+            - "8022:22"
         volumes:
           - ../website:/var/www
           - ./cnp56/sites-enable:/etc/nginx/conf.d
           - ./cnp56/conf/nginx.conf:/etc/nginx/nginx.conf
           - ./cnp56/conf/php-ini-overrides.ini:/etc/php.d/zzz-overrides.ini
-          - ./cnp56/conf/crontab.conf:/etc/crontab
           - ./cnp56/conf/supervisord.conf:/etc/supervisor/supervisord.conf

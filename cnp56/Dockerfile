@@ -1,6 +1,8 @@
 FROM centos:centos6
 MAINTAINER Imagine Chiu<imagine10255@gmail.com>
 
+ENV SSH_PASSWORD=P@ssw0rd
+
 # Setting DateTime Zone
 RUN cp -p /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 
@@ -25,6 +27,12 @@ RUN rpm --import http://ftp.riken.jp/Linux/fedora/epel/RPM-GPG-KEY-EPEL-6 && \
     sed -i -e "s/enabled=1/enabled=0/g" /etc/yum.repos.d/nginx.repo
 RUN yum -y --enablerepo=nginx install nginx
 
+# Ensure that PHP5 FPM is run as root.
+RUN sed -i -e 's/user = apache/user = nginx/' /etc/php-fpm.d/www.conf
+RUN sed -i -e 's/group = apache/group = nginx/' /etc/php-fpm.d/www.conf
+RUN mv /etc/php.d/xdebug.ini /etc/php.d/xdebug.ini.disable
+
+
 # Setting Composer
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer && \
     echo 'export PATH="/root/.composer/vendor/bin:$PATH"' >> /root/.bashrc
@@ -35,16 +43,19 @@ RUN yum -y install supervisor
 # Install crontab service
 RUN yum -y install vixie-cron crontabs
 RUN sed -ie '/pam_loginuid/d' /etc/pam.d/crond
-RUN chmod g+s /etc/crontab
+
+
+# Install SSH Service
+RUN yum install -y openssh-server passwd
+RUN sed -ri 's/#UsePAM no/UsePAM no/g' /etc/ssh/sshd_config && \
+    echo "${SSH_PASSWORD}" | passwd "root" --stdin && \
+    ssh-keygen -q -t rsa -N '' -f /etc/ssh/ssh_host_rsa_key && \
+    ssh-keygen -q -t dsa -N '' -f  /etc/ssh/ssh_host_dsa_key && \
+    ssh-keygen -q -t ecdsa -N '' -f /etc/ssh/ssh_host_ecdsa_key
+
 
 # Delete Install data-info
 RUN yum clean all && rm -f /var/log/yum.log
-
-
-# Ensure that PHP5 FPM is run as root.
-RUN sed -i -e 's/user = apache/user = nginx/' /etc/php-fpm.d/www.conf
-RUN sed -i -e 's/group = apache/group = nginx/' /etc/php-fpm.d/www.conf
-RUN mv /etc/php.d/xdebug.ini /etc/php.d/xdebug.ini.disable
 
 
 # Add configuration files
@@ -55,7 +66,7 @@ COPY sites-module /etc/nginx/sites-module
 
 VOLUME ["/var/www", "/etc/nginx/conf.d"]
 
-EXPOSE 80 443 9000
+EXPOSE 22 80 443 9000
 
 # Executing supervisord
 # -n / --nodaemon : runs in foreground ( required for docker )

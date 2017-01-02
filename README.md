@@ -1,9 +1,9 @@
-imdock
-==================================
+imdock(centos7 + php7/5.6 + nginx + mysql + mailhog)
+====================================================
 
 #How to run#
 
-  * Start Sample: `docker-compose up -d imdock-mysql imdock-cnp56 imdock-mailhog`
+  * Start Sample: `sh im.sh`
 
 #Docker compose cheatsheet#
 

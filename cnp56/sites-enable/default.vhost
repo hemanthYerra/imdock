@@ -15,13 +15,3 @@ server {
 #     include /etc/nginx/sites-module/enable-php.conf;
 #     include /etc/nginx/sites-module/enable-laravel.conf;
 # }
-
-server {
-    listen 80;
-    server_name  dev.atepd-01.com dev.atepd-02.com dev.atepd-03.com;
-    index index.html index.php;
-    root /var/www/161205-atepd/public;
-
-    include /etc/nginx/sites-module/enable-php.conf;
-    include /etc/nginx/sites-module/enable-laravel.conf;
-}

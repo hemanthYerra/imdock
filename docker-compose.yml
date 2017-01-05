@@ -12,6 +12,13 @@ services:
          - "8025:8025"
          - "1025:1025"
 
+    imdock-mailcatcher:
+       image: schickling/mailcatcher:latest
+       container_name: imdock-mailcatcher
+       ports:
+         - "1080:1080"
+         - "1025:1025"
+
 
     #--------------------------------------
     # Cache

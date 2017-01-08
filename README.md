@@ -1,22 +1,15 @@
 imdock
 ====================================================
 
-#How to run#
+## What's this:
 
-  * Start Sample(check you in docker-project dir): `sh im.sh`
+Centos(Nginx + PHP5.6, PHP7.1), Mysql, Redis, postgres, mailcatcher, mailhog
 
-#Docker compose cheatsheet#
+you can easy install PHP Framework (ex: Laravel)
 
-**Note 1:** you need to cd first to where your docker-compose.yml file lives
+## How to install:
 
-**Note 2:** if you're using Vagrant, you'll need to ssh into it first
-
-  * Start containers in the background: `docker-compose up -d`
-  * Start containers on the foreground: `docker-compose up`. You will see a stream of logs for every container running.
-  * Stop containers: `docker-compose stop`
-  * Kill containers: `docker-compose kill`
-  * View container logs: `docker-compose logs`
-  * Execute command inside of container: `docker exec -it imdock-php-fpm COMMAND` where `COMMAND` is whatever you want to run. For instance, `/bin/bash` to open a console prompt.
+  * Start Sample(check you in docker-project dir): `$ sh im.sh`
 
 ## PHP Extend:
 - [x] PHP5.6
@@ -54,3 +47,6 @@ imdock
   - [x] zend-opcache
   - [ ] memcache
   - [ ] xdebug
+
+## How to use Xedebug by phpstorm:
+

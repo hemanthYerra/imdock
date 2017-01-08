@@ -91,6 +91,7 @@ services:
         ports:
             - "80:80"
             - "8022:22"
+            - "9000:9000"
         volumes:
           #- ./cnp56/conf/nginx.conf:/etc/nginx/nginx.conf
           #- ./cnp56/conf/supervisord.conf:/etc/supervisor/supervisord.conf
@@ -106,6 +107,7 @@ services:
         ports:
             - "81:80"
             - "8122:22"
+            - "9100:9000"
         volumes:
           #- ./cnp7/conf/nginx.conf:/etc/nginx/nginx.conf
           #- ./cnp7/conf/supervisord.conf:/etc/supervisor/supervisord.conf

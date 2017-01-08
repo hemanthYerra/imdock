@@ -10,7 +10,7 @@ RUN cp -p /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 RUN yum -y install vim wget tar
 RUN yum -y groupinstall development
 
-# Install PHP7-FPM (https://webtatic.com/packages/php56)
+# Install PHP7-FPM (https://webtatic.com/packages/php71)
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 RUN yum -y install --enablerepo=webtatic-testing php71w-fpm php71w-opcache php71w-cli php71w-gd php71w-imap php71w-mysqlnd php71w-mbstring php71w-mcrypt php71w-pdo php71w-pecl-apcu php71w-pecl-mongodb php71w-pecl-redis php71w-pgsql php71w-xml php71w-xmlrpc

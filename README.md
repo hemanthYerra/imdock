@@ -5,7 +5,9 @@ imdock
 
 Centos(Nginx + PHP5.6, PHP7.1), Mysql, Redis, Postgres, Mailcatcher, Mailhog
 
-you can easy install PHP Framework (ex: Laravel)
+  * you can easy install PHP Framework (ex: Laravel)
+
+  * you can use xdebug mode by PHPStorm(2016.2 or latest):
 
 ## How to install:
 
@@ -47,6 +49,4 @@ you can easy install PHP Framework (ex: Laravel)
   - [x] zend-opcache
   - [ ] memcache
   - [ ] xdebug
-
-## How to use Xdebug by PHPStorm(2016.2 or latest):
 

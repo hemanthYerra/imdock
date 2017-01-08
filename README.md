@@ -3,7 +3,7 @@ imdock
 
 ## What's this:
 
-Centos(Nginx + PHP5.6, PHP7.1), Mysql, Redis, postgres, mailcatcher, mailhog
+Centos(Nginx + PHP5.6, PHP7.1), Mysql, Redis, Postgres, Mailcatcher, Mailhog
 
 you can easy install PHP Framework (ex: Laravel)
 
@@ -48,5 +48,5 @@ you can easy install PHP Framework (ex: Laravel)
   - [ ] memcache
   - [ ] xdebug
 
-## How to use Xedebug by phpstorm:
+## How to use Xdebug by PHPStorm(2016.2 or latest):
 

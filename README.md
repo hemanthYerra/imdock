@@ -8,7 +8,9 @@ Centos(Nginx + PHP5.6, PHP7.1), Mysql, Redis, Postgres, Mailcatcher, Mailhog
   * you can easy install PHP Framework (ex: Laravel)
 
   * you can use xdebug mode by PHPStorm(2016.2 or latest):
-
+  
+  * this project use management by docker-compose
+  
 ## How to install:
 
   * Start Sample(check you in docker-project dir): `$ sh im.sh`

@@ -1,9 +1,9 @@
-imdock(centos7 + php7/5.6 + nginx + mysql + mailhog)
+imdock
 ====================================================
 
 #How to run#
 
-  * Start Sample: `sh im.sh`
+  * Start Sample(check you in docker-project dir): `sh im.sh`
 
 #Docker compose cheatsheet#
 
@@ -17,3 +17,40 @@ imdock(centos7 + php7/5.6 + nginx + mysql + mailhog)
   * Kill containers: `docker-compose kill`
   * View container logs: `docker-compose logs`
   * Execute command inside of container: `docker exec -it imdock-php-fpm COMMAND` where `COMMAND` is whatever you want to run. For instance, `/bin/bash` to open a console prompt.
+
+## PHP Extend:
+- [x] PHP5.6
+  - [x] mbstring
+  - [x] mcrypt
+  - [x] php-dom, php-domxml, php-wddx, php-xsl
+  - [x] php-mysqli, php_database
+  - [ ] mongodb
+  - [ ] redis
+  - [ ] pgsql
+  - [x] php-mssql
+  - [x] php56w-pdo_sqlite, php56w-sqlite3
+  - [ ] apcu
+  - [x] gd
+  - [ ] imap  
+  - [x] imagick
+  - [x] zend-opcache
+  - [x] memcache
+  - [x] xdebug
+  
+- [x] PHP7
+  - [x] mbstring
+  - [x] mcrypt
+  - [x] php-dom, php-domxml, php-wddx, php-xslxml, xmlrpc
+  - [x] php-mysqli, php_database
+  - [x] mongodb
+  - [x] redis
+  - [x] pgsql
+  - [ ] php-mssql  
+  - [x] php71w-pdo_sqlite, php71w-sqlite3
+  - [x] apcu
+  - [x] gd
+  - [x] imap
+  - [ ] imagick
+  - [x] zend-opcache
+  - [ ] memcache
+  - [ ] xdebug

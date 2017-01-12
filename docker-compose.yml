@@ -13,6 +13,7 @@ services:
          - "1025:1025"
 
     imdock-mailcatcher:
+       restart: always
        image: schickling/mailcatcher:latest
        container_name: imdock-mailcatcher
        ports:
@@ -24,6 +25,7 @@ services:
     # Cache
     #--------------------------------------
     imdock-redis:
+      restart: always
       image: redis:latest
       container_name: imdock-redis
       volumes:
@@ -34,6 +36,7 @@ services:
     # Database
     #--------------------------------------
     imdock-mysql:
+       restart: always
        image: mysql:5.7
        container_name: imdock-mysql
        ports:
@@ -84,6 +87,7 @@ services:
     # Web Service
     #--------------------------------------
     imdock-cnp56:
+        restart: always
         build:
           context: ./cnp56
           dockerfile: Dockerfile

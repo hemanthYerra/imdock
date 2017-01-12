@@ -13,7 +13,7 @@ RUN yum -y groupinstall development
 # Install PHP56-FPM (https://webtatic.com/packages/php56)
 RUN rpm --import http://ftp.riken.jp/Linux/fedora/epel/RPM-GPG-KEY-EPEL-6 && \
     rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
-RUN yum -y install php56w php56w-fpm php56w-mbstring php56w-xml php56w-mysql php56w-pdo php56w-gd php56w-pecl-imagick php56w-opcache php56w-pecl-memcache php56w-pecl-xdebug
+RUN yum -y install php56w php56w-fpm php56w-mbstring php56w-xml php56w-mysql php56w-pdo php56w-gd php56w-pecl-imagick php56w-opcache php56w-pecl-memcache php56w-intl php56w-pecl-xdebug
 
 # Install php-mssql,mcrypt
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
@@ -30,7 +30,7 @@ RUN yum -y --enablerepo=nginx install nginx
 # Ensure that PHP5 FPM is run as root.
 RUN sed -i -e 's/user = apache/user = nginx/' /etc/php-fpm.d/www.conf
 RUN sed -i -e 's/group = apache/group = nginx/' /etc/php-fpm.d/www.conf
-#RUN mv /etc/php.d/xdebug.ini /etc/php.d/xdebug.ini.disable
+RUN mv /etc/php.d/xdebug.ini /etc/php.d/xdebug.ini.disable
 
 
 # Setting Composer

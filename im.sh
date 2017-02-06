@@ -14,20 +14,22 @@ do
     # View
     echo -e "
 [docker-compose manage]
- 1) create centos7 + php7 + nginx + mysql + mailcatcher
- 2) create centos6 + php5.6 + nginx + mysql + mailcatcher
+ 1) create centos7 + php7 + nginx + mariadb + mailcatcher
+ 2) create centos6 + php5.6 + nginx + mariadb + mailcatcher
 st) stop all container
 de) delete all container
 ps) display all container
+dv) delete volume
+pv) display all volume
 "
     read -p "Enter your choice: " NUM
     case $NUM in
     1)
-        docker-compose up -d imdock-mysql imdock-cnp7 imdock-mailcatcher
+        docker-compose up -d imdock-mariadb imdock-cnp7 imdock-mailcatcher
         exit;
     ;;
     2)
-        docker-compose up -d imdock-mysql imdock-cnp56 imdock-mailcatcher
+        docker-compose up -d imdock-mariadb imdock-cnp56 imdock-mailcatcher
         exit;
     ;;
     st)
@@ -40,6 +42,13 @@ ps) display all container
     ;;
     ps)
         display_container
+    ;;
+    dv)
+        docker volume rm imdock_mariadb-data
+        exit;
+    ;;
+    pv)
+        docker volume ls
     ;;
     q)
         exit;

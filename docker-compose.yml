@@ -130,6 +130,9 @@ services:
           context: ./cnp56
           dockerfile: Dockerfile
         container_name: imdock-cnp56
+        links:
+            - "imdock-mariadb:database"
+            - "imdock-mailcatcher:mail"
         ports:
             - "80:80"
             - "8022:22"
@@ -146,6 +149,9 @@ services:
           context: ./cnp7
           dockerfile: Dockerfile
         container_name: imdock-cnp7
+        links:
+            - "imdock-mariadb:database"
+            - "imdock-mailcatcher:mail"
         ports:
             - "81:80"
             - "8122:22"

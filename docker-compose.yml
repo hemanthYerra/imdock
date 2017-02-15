@@ -126,9 +126,10 @@ services:
     #--------------------------------------
     imdock-cnp56:
         restart: always
-        build:
-          context: ./cnp56
-          dockerfile: Dockerfile
+        image: imagine10255/imdock:cnp56
+#        build:
+#          context: ./cnp56
+#          dockerfile: Dockerfile
         container_name: imdock-cnp56
         links:
             - "imdock-mariadb:database"
@@ -138,16 +139,18 @@ services:
             - "8022:22"
             - "9000:9000"
         volumes:
-          #- ./cnp56/conf/nginx.conf:/etc/nginx/nginx.conf
           #- ./cnp56/conf/supervisord.conf:/etc/supervisor/supervisord.conf
+          - ./cnp56/conf/nginx.conf:/etc/nginx/nginx.conf
           - ../website:/var/www
           - ./cnp56/sites-enable:/etc/nginx/conf.d
           - ./cnp56/conf/php-ini-overrides.ini:/etc/php.d/zzz-overrides.ini
 
     imdock-cnp7:
-        build:
-          context: ./cnp7
-          dockerfile: Dockerfile
+        restart: always
+        image: imagine10255/imdock:cnp7
+#        build:
+#          context: ./cnp7
+#          dockerfile: Dockerfile
         container_name: imdock-cnp7
         links:
             - "imdock-mariadb:database"
@@ -157,8 +160,8 @@ services:
             - "8122:22"
             - "9100:9000"
         volumes:
-          #- ./cnp7/conf/nginx.conf:/etc/nginx/nginx.conf
           #- ./cnp7/conf/supervisord.conf:/etc/supervisor/supervisord.conf
+          - ./cnp7/conf/nginx.conf:/etc/nginx/nginx.conf
           - ../website:/var/www
           - ./cnp7/sites-enable:/etc/nginx/conf.d
           - ./cnp7/conf/php-ini-overrides.ini:/etc/php.d/zzz-overrides.ini

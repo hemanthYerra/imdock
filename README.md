@@ -11,6 +11,8 @@ Centos(Nginx + PHP5.6, PHP7.1), Mysql, Redis, Postgres, Mailcatcher, Mailhog
 
   * this project use management by docker-compose
   
+  * you can use this for Laravel-5 PHP Framework
+  
 ## How to choose the version:
  
   * if you use Docker Toolbox, You must choose Mysql (no volume), Because MariaDB can not use the mapping to mount the data
@@ -27,6 +29,13 @@ Centos(Nginx + PHP5.6, PHP7.1), Mysql, Redis, Postgres, Mailcatcher, Mailhog
     
 ![imdock](https://github.com/imagine10255/imdock/blob/master/images/im.sh.jpg)
 
+
+## How to change setting:
+
+  * You just look at this directory you will understand (cnp56/config/* or cnp7/config/*)
+    
+  * When the settings are complete, restart the container
+    
 ## PHP Extend:
 - [x] PHP5.6
   - [x] mbstring

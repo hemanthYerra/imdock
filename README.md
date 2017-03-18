@@ -19,9 +19,13 @@ Centos(Nginx + PHP5.6, PHP7.1), Mysql, Redis, Postgres, Mailcatcher, Mailhog
       
 ## How to install:
 
+    imagi@DESKTOP-JJ9BJ2B ~/imdock $ git clone https://github.com/imagine10255/imdock.git
+
     imagi@DESKTOP-JJ9BJ2B ~/imdock $ cp ./cnp56/sites-enable/default.vhost ./sites-enable/mysite.vhost
     
     imagi@DESKTOP-JJ9BJ2B ~/imdock $ sh im.sh 
+    
+    ![imdock](https://github.com/imagine10255/imdock/blob/master/images/im.sh.jpg)
 
 ## PHP Extend:
 - [x] PHP5.6

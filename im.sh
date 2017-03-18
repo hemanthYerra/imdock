@@ -19,6 +19,7 @@ do
  3) create centos6 + php5.6 + nginx + mariadb + redis + mailcatcher
  4) create centos6 + php5.6 + nginx + mysql + redis + mailcatcher
 st) stop all container
+rs) restart all container
 de) delete all container
 ps) display all container
 dv) delete volume
@@ -32,7 +33,6 @@ pv) display all volume
     ;;
     2)
         docker-compose up -d imdock-mysql imdock-cnp7 imdock-redis imdock-mailcatcher
-
         exit;
     ;;
     3)
@@ -45,6 +45,10 @@ pv) display all volume
     ;;
     st)
         docker-compose stop
+        exit;
+    ;;
+    rs)
+        docker-compose restart
         exit;
     ;;
     de)

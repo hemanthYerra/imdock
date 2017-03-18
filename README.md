@@ -11,6 +11,12 @@ Centos(Nginx + PHP5.6, PHP7.1), Mysql, Redis, Postgres, Mailcatcher, Mailhog
 
   * this project use management by docker-compose
   
+## How to choose the version:
+ 
+  * if you use Docker Toolbox, You must choose Mysql (no volume), Because MariaDB can not use the mapping to mount the data
+    
+  * if you use Docker for windows, You must choose MariaDB (volume)
+      
 ## How to install:
 
     imagi@DESKTOP-JJ9BJ2B ~/imdock $ cp ./cnp56/sites-enable/default.vhost ./sites-enable/mysite.vhost

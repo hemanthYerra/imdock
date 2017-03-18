@@ -15,7 +15,9 @@ do
     echo -e "
 [docker-compose manage]
  1) create centos7 + php7 + nginx + mariadb + redis + mailcatcher
- 2) create centos6 + php5.6 + nginx + mariadb + redis + mailcatcher
+ 2) create centos7 + php7 + nginx + mysql + redis + mailcatcher
+ 3) create centos6 + php5.6 + nginx + mariadb + redis + mailcatcher
+ 4) create centos6 + php5.6 + nginx + mysql + redis + mailcatcher
 st) stop all container
 de) delete all container
 ps) display all container
@@ -29,7 +31,16 @@ pv) display all volume
         exit;
     ;;
     2)
+        docker-compose up -d imdock-mysql imdock-cnp7 imdock-redis imdock-mailcatcher
+
+        exit;
+    ;;
+    3)
         docker-compose up -d imdock-mariadb imdock-cnp56 imdock-redis imdock-mailcatcher
+        exit;
+    ;;
+    4)
+        docker-compose up -d imdock-mysql imdock-cnp56 imdock-redis imdock-mailcatcher
         exit;
     ;;
     st)

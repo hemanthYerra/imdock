@@ -13,7 +13,7 @@ services:
          - "1025:1025"
 
     imdock-mailcatcher:
-       restart: always
+       #restart: always
        image: schickling/mailcatcher:latest
        container_name: imdock-mailcatcher
        ports:
@@ -25,7 +25,7 @@ services:
     # Cache
     #--------------------------------------
     imdock-redis:
-      restart: always
+      #restart: always
       image: redis:latest
       container_name: imdock-redis
       volumes:
@@ -36,7 +36,7 @@ services:
     # Database
     #--------------------------------------
     imdock-mariadb:
-           restart: always
+           #restart: always
            image: mariadb:10.1
            container_name: imdock-mariadb
            ports:
@@ -74,7 +74,7 @@ services:
              - ../tmp:/imdock
 
     imdock-mysql:
-       restart: always
+       #restart: always
        image: mysql:5.7
        container_name: imdock-mysql
        ports:
@@ -108,7 +108,7 @@ services:
                  --innodb-flush-method=O_DIRECT
                  --sql-mode="STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
        volumes:
-         - mysql-data:/var/lib/mysql
+         - ../mysql:/var/lib/mysql
          - ../tmp:/imdock
 
 
@@ -132,7 +132,7 @@ services:
 #          dockerfile: Dockerfile
         container_name: imdock-cnp56
         links:
-            - "imdock-mariadb:database"
+#            - "imdock-mariadb:database"
             - "imdock-mailcatcher:mail"
             - "imdock-redis:redis"
         ports:
@@ -154,7 +154,7 @@ services:
 #          dockerfile: Dockerfile
         container_name: imdock-cnp7
         links:
-            - "imdock-mariadb:database"
+#            - "imdock-mariadb:database"
             - "imdock-mailcatcher:mail"
             - "imdock-redis:redis"
         ports:
@@ -169,8 +169,6 @@ services:
           - ./cnp7/conf/php-ini-overrides.ini:/etc/php.d/zzz-overrides.ini
 
 volumes:
-    mysql-data:
-      driver: local
     mariadb-data:
       driver: local
     redis-data:

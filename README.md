@@ -25,7 +25,7 @@ Centos(Nginx + PHP5.6, PHP7.1), Mysql, Redis, Postgres, Mailcatcher, Mailhog
     
     imagi@DESKTOP-JJ9BJ2B ~/imdock $ sh im.sh 
     
-    ![imdock](https://github.com/imagine10255/imdock/blob/master/images/im.sh.jpg)
+![imdock](https://github.com/imagine10255/imdock/blob/master/images/im.sh.jpg)
 
 ## PHP Extend:
 - [x] PHP5.6
